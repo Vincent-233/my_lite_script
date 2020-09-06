@@ -6,6 +6,13 @@
     PS > file.ps1 -path "C:\test_sql"
     PS > file.ps1 "C:\test_sql"
     PS > file.ps1 C:\test_sql
+
+. note
+    use be used in ssms External Tools
+        - Title -> Uppercase-Keywords
+        - Command -> powershell.exe
+        - Arguments -> -ExecutionPolicy ByPass -f C:\sql_uppercase_test.ps1 $(ItemPath)
+        - Initial directory  ->  C:\Windows\System32\WindowsPowerShell\v1.0
 #>
 
 param(
