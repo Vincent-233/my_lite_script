@@ -110,3 +110,16 @@ INNER JOIN sys.dm_exec_sessions b on a.request_session_id = b.session_id
 LEFT JOIN sys.partitions p ON a.resource_associated_entity_id = p.hobt_id;
 
 exec sp_lock;
+
+
+/*
+IS - 意向共享
+S - 共享
+U - 更新
+IX - 意向排它
+SIX - 意向排它共享
+X - 排它
+Sch-S 架构稳定锁
+Sch-M 架构修改锁
+BU - 大容量更新锁
+*/
