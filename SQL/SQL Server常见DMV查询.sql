@@ -1,5 +1,4 @@
 -- 查询 Session 正在执行的SQL
--- Running Query
 SELECT req.session_id
     ,s.login_time
     ,req.start_time
@@ -18,6 +17,10 @@ SELECT req.session_id
     ,s.program_name
     ,s.client_version
     ,s.nt_user_name
+	,s.reads
+	,s.writes
+	,s.logical_reads
+	,s.open_transaction_count
     ,req.open_transaction_count
     ,req.estimated_completion_time
     ,DATALENGTH(ST.TEXT) AS statement_length
@@ -36,13 +39,14 @@ SELECT req.session_id
 FROM sys.dm_exec_requests req
 CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS st
 LEFT JOIN sys.databases db ON req.database_id = db.database_id
-LEFT JOIN sys.dm_exec_sessions s ON req.session_id = s.session_id;
+LEFT JOIN sys.dm_exec_sessions s ON req.session_id = s.session_id
+WHERE req.session_id <> @@SPID;
 
 
--- blocked 为为阻塞当前会话的进程
+-- blocked: ID of the session that is blocking the request
 select * from sys.sysprocesses where blocked <> 0 and blocked <> spid
 
--- blocking_session_id 为阻塞当前会话 的进程
+-- blocking_session_id : ID of the session that is blocking the request
 select * from sys.dm_exec_requests where blocking_session_id <> 0
 
 
@@ -83,3 +87,26 @@ ORDER BY er.total_elapsed_time DESC
          ,[database_name]
          ,session_id;
 
+
+
+
+-- 锁
+use test_db
+GO
+
+SELECT a.request_session_id
+     ,a.resource_type
+	 ,a.resource_associated_entity_id
+	 ,object_name(p.object_id) as object_name
+	 ,db_name(b.database_id) as database_name
+	 ,a.request_status
+	 ,a.request_mode
+	 ,p.object_id
+	 ,b.database_id
+	 ,a.resource_description
+	 ,b.login_name
+FROM sys.dm_tran_locks a
+INNER JOIN sys.dm_exec_sessions b on a.request_session_id = b.session_id
+LEFT JOIN sys.partitions p ON a.resource_associated_entity_id = p.hobt_id;
+
+exec sp_lock;
