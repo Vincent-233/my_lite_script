@@ -1,3 +1,4 @@
+#!/bin/bash
 for f in $(ls 123*) 
 do
     line_count=$(wc $f -l|awk '{print $1}')
