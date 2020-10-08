@@ -1,4 +1,4 @@
-# 删除7天以前的文件
+# 鍒犻櫎7澶╀互鍓嶇殑鏂囦欢
 $limit = (Get-Date).AddDays(-7)
-$path = "D:\kayangDTS\Out\BI"
+$path = "D:\xxxDTS\Out\BI"
 Get-ChildItem -Path $path | Where-Object { !$_.PSIsContainer -and $_.CreationTime -lt $limit } | Remove-Item
