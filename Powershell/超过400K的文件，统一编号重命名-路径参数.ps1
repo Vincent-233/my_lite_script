@@ -9,7 +9,7 @@
 
 .Typical Usage：
     获取Win10的锁屏壁纸，每台电脑路径不一样，我的壁纸路径如下：
-    C:\Users\Mings\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets
+    C:\Users\xxxx\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets
     可以将其拷贝到另一路径下，然后运行此脚本
 #>
 

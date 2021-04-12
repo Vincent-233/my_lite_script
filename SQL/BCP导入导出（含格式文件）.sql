@@ -58,7 +58,7 @@ bcp DGT.dbo.Consumer_TMall in C:\Users\bming\Documents\VM-Share\consumer.csv -c 
 
 --------- 本地格式（在无扩展字段或双字节字符的前提下可用，并可提升速度）
 -- export to a native file 
-bcp test_db.dbo.physcial_checkup out D:\Users\Mings\Desktop\Temp\2014-Medical-native.dat -S xxx -n -T
+bcp test_db.dbo.physcial_checkup out D:\Users\xxxx\Desktop\Temp\2014-Medical-native.dat -S xxx -n -T
 -- import a native file
-bcp test_db.dbo.physcial_checkup in D:\Users\Mings\Desktop\Temp\2014-Medical-native.dat -S xxx -n -T
+bcp test_db.dbo.physcial_checkup in D:\Users\xxxx\Desktop\Temp\2014-Medical-native.dat -S xxx -n -T
 

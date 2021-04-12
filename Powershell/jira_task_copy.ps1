@@ -1,6 +1,6 @@
 ﻿# source and dest
-$source = 'D:\Users\Mings\Desktop\Temp\jira_copy\Source'
-$dest = 'D:\Users\Mings\Desktop\Temp\jira_copy\Dest'
+$source = 'D:\Users\xxxx\Desktop\Temp\jira_copy\Source'
+$dest = 'D:\Users\xxxx\Desktop\Temp\jira_copy\Dest'
 
 
 $project = ls $source -Dir|Select Name,FullName
