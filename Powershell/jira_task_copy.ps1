@@ -1,4 +1,38 @@
-﻿# source and dest
+﻿<#
+Source:
+	+--- 123213_task_2
+	|   +--- script_1.sql
+	|   +--- script_2.sql
+	|   +--- task_1.sql
+	+--- 143455_task_3
+	|   +--- script 1.sql
+	|   +--- script 2.sql
+	+--- other_task
+	|   +--- 21432_script 4.sql
+	|   +--- 46514_script 3.sql
+	|   +--- 56435_script 2.sql
+	|   +--- dsfafafdsafda.sql
+	|   +--- script 1.sql
+
+Dest:
+	+--- 123213
+	|   +--- script_1.sql
+	|   +--- script_2.sql
+	|   +--- task_1.sql
+	+--- 143455
+	|   +--- script 1.sql
+	|   +--- script 2.sql
+	+--- 21432
+	|   +--- 21432_script 4.sql
+	+--- 46514
+	|   +--- 46514_script 3.sql
+	+--- 56435
+	|   +--- 56435_script 2.sql
+	+--- dsfafafdsafda.sql
+	+--- script 1.sql
+#>
+
+# source and dest
 $source = 'D:\Users\xxxx\Desktop\Temp\jira_copy\Source'
 $dest = 'D:\Users\xxxx\Desktop\Temp\jira_copy\Dest'
 
